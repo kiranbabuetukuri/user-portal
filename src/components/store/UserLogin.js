@@ -19,14 +19,14 @@ export const userLoggedInReducer = (state = initialState, action) => {
     switch (action.type) {
         case USER_LOGIN_SUCCESS:
             return { is_logged_in: true }
-            break;
+
         case USER_LOGIN_FAIL:
             return { is_logged_in: false }
-            break;
+
 
         default:
             return initialState;
-            break;
+
     }
 }
 

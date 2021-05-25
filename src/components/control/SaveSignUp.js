@@ -14,8 +14,7 @@ export const SaveSignUp = function (data) {
         return { message: 'UserExist', error: true }
     } else {
         users.push(data)
-        let result = localStorage.setItem('users', JSON.stringify(users));
-
+        //  let result = localStorage.setItem('users', JSON.stringify(users));
         return { message: 'User successfully inserted', error: false }
     }
 

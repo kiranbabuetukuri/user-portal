@@ -7,6 +7,7 @@ import { fetchUserLoggedIn } from './store/UserLogin'
 import { connect } from 'react-redux'
 function Login(props) {
 	const initialState = { email: '', password: '' }
+	const [handleSubmitFlag, setHandleSubmitFlag] = useState(false)
 	const [formdata, setformdata] = useState(initialState)
 	const handleChange = (event) => {
 		//	console.log(event)
@@ -18,6 +19,7 @@ function Login(props) {
 		// console.log('handleSubmit')
 		// console.log(props.getLogin)
 		props.setLogIn(formdata)
+		setHandleSubmitFlag(true)
 	}
 
 	store.subscribe((event) => {
@@ -52,18 +54,18 @@ function Login(props) {
 							<form>
 
 
-								<h5 style={{ backgroundColor: 'red', display: props.getLogin ? 'none' : 'block' }}>Invalid username Password</h5>
+								<h5 style={{ backgroundColor: 'red', display: props.getLogin || !handleSubmitFlag ? 'none' : 'block' }}>Invalid username Password</h5>
 								<div className="input-group mb-3">
 									<div className="input-group-append">
 										<span className="input-group-text"><i className="fas fa-user"></i></span>
 									</div>
-									<input type="text" name="email" className="form-control input_user" value="" placeholder="username" value={formdata.email} onChange={handleChange} />
+									<input type="text" name="email" className="form-control input_user" placeholder="username" value={formdata.email} onChange={handleChange} />
 								</div>
 								<div className="input-group mb-2">
 									<div className="input-group-append">
 										<span className="input-group-text"><i className="fas fa-key"></i></span>
 									</div>
-									<input type="password" name="password" className="form-control input_pass" value="" placeholder="password" value={formdata.password} onChange={handleChange} />
+									<input type="password" name="password" className="form-control input_pass" placeholder="password" value={formdata.password} onChange={handleChange} />
 								</div>
 
 
@@ -78,8 +80,8 @@ function Login(props) {
 								Don't have an account? <Link to="/signup" className="ml-2">Sign Up</Link>
 							</div>
 							<div className="d-flex justify-content-center links">
-								<a href="#">Forgot your password?</a>
-								<button onClick={checkLogin}>Click</button>
+								<a  >Forgot your password?</a>
+
 							</div>
 						</div>
 					</div>

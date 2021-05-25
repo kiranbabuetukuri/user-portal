@@ -30,7 +30,7 @@ function Signup(props) {
 								<h3 className="panel-title">Please sign up for Portal  </h3>
 							</div>
 							<div className="panel-body">
-								<form role="form">
+								<form  >
 									<div className="row">
 										<div className="col-xs-6 col-sm-6 col-md-6">
 											<div className="form-group">
